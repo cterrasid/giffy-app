@@ -8,6 +8,8 @@ function App() {
     <div className="App">
       <section className="App-content">
         <Link to="/gif/Britney">Gifs de Britney</Link>
+        <Link to="/gif/Kanye">Gifs de Kanye</Link>
+        <Link to="/gif/Pandas">Gifs de Pandas</Link>
         <Route path="/gif/:keyword" component={ListOfGifs} />
       </section>
     </div>
