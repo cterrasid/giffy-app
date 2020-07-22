@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, Route } from "wouter";
 import ListOfGifs from "./components/ListOfGifs";
 import "./App.css";
 
 function App() {
-  const [keyword, setKeyword] = useState("matrix");
-  
   return (
     <div className="App">
       <section className="App-content">
-        <ListOfGifs keyword={keyword} />
+        <Link to="/gif/Britney">Gifs de Britney</Link>
+        <Route path="/gif/:keyword" component={ListOfGifs} />
       </section>
     </div>
   );
