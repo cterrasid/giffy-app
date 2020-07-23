@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ListOfGifs from "../../components/ListOfGifs";
-import getGifsService from "../../services/getGifsService";
+import useGifs from "../../hooks/useGifs";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
+  const { isLoading, gifs } = useGifs({keyword});
 
-  useEffect(
-    () => {
-      setIsLoading(true);
-      getGifsService({ keyword }).then(gifs => {
-        setGifs(gifs);
-        setIsLoading(false);
-      });
-    },
-    [keyword]
-  );
-
-  return <ListOfGifs gifs={gifs} />;
+  return isLoading ? "Loading" : <ListOfGifs gifs={gifs} />;
 }
