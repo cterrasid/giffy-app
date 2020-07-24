@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import getGifsService from "../services/getGifsService";
+import GifsContext from "../context/GifsContext";
 
 export default function useGifs({ keyword } = { keyword: null }) {
-  const [gifs, setGifs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Actualizar el estado del contexto, en lugar del estado local:
+  const { gifs, setGifs } = useContext(GifsContext);
 
   useEffect(
     () => {
@@ -14,10 +17,10 @@ export default function useGifs({ keyword } = { keyword: null }) {
       getGifsService({ keyword: keywordToUse }).then(gifs => {
         setGifs(gifs);
         setIsLoading(false);
-        localStorage.setItem("lastKeyword", keyword)
+        localStorage.setItem("lastKeyword", keyword);
       });
     },
-    [keyword]
+    [keyword, setGifs]
   );
 
   return { isLoading, gifs };
