@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <Route path="/" component={Home} />
         <GifsContextProvider>
+          <Route path="/" component={Home} />
           <Route path="/search/:keyword" component={SearchResults} />
           <Route path="/gif/:id" component={Detail} />
         </GifsContextProvider>

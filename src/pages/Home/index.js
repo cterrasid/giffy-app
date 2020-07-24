@@ -24,7 +24,7 @@ export default function Home() {
         <input type="text" value={keyword} onChange={handleChange} />
         <button>Buscar</button>
       </form>
-      <h3 className="App-title">Última bísqueda</h3>
+      <h3 className="App-title">Última búsqueda</h3>
       <ListOfGifs gifs={gifs} />
       <Link to="/search/Britney">Gifs de Britney</Link>
       <Link to="/search/Kanye">Gifs de Kanye</Link>
