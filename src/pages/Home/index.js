@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import ListOfGifs from "../../components/ListOfGifs";
 import useGifs from "../../hooks/useGifs";
+import TrendingSearches from "../../components/TrendingSearches";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
@@ -26,9 +27,7 @@ export default function Home() {
       </form>
       <h3 className="App-title">Última búsqueda</h3>
       <ListOfGifs gifs={gifs} />
-      <Link to="/search/Britney">Gifs de Britney</Link>
-      <Link to="/search/Kanye">Gifs de Kanye</Link>
-      <Link to="/search/Pandas">Gifs de Pandas</Link>
+      <TrendingSearches />
     </Fragment>
   );
 }
