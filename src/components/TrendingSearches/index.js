@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getTrendingSearchesService from "../../services/getTrendingSearchesService";
+import getTrendingSearchesService from "services/getTrendingSearchesService";
 import ListOfCategories from "../ListOfCategories";
 
 export default function TrendingSearches() {
@@ -8,6 +8,6 @@ export default function TrendingSearches() {
   useEffect(() => {
     getTrendingSearchesService().then(setTrends);
   }, []);
-  
+
   return <ListOfCategories name="Trends" options={trends} />;
 }
