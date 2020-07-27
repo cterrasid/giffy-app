@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import getTrendingSearchesService from "services/getTrendingSearchesService";
 import ListOfCategories from "../ListOfCategories";
 
@@ -14,21 +14,25 @@ function TrendingSearches() {
 
 export default function LazyTrending() {
   const [show, setShow] = useState(false);
+  const elementRef = useRef();
 
   useEffect(() => {
-    const onChange = entries => {
+    const onChange = (entries, observer) => {
       const el = entries[0];
       el.isIntersecting && setShow(true);
+      observer.disconnect();
     };
 
     const observer = new IntersectionObserver(onChange, {
       rootMargin: "100px"
     });
 
-    observer.observe(document.getElementById("LazyTrending"));
+    observer.observe(elementRef.current);
+
+    return () => observer.disconnect();
   });
   return (
-    <div id="LazyTrending">
+    <div ref="elementRef">
       {show ? <TrendingSearches /> : null}
     </div>
   );
