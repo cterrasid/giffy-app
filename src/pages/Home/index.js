@@ -6,7 +6,7 @@ import TrendingSearches from "components/TrendingSearches";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
-  const [pushLocation] = useLocation();
+  const [path, pushLocation] = useLocation();
   const { gifs } = useGifs();
 
   const handleSubmit = e => {
