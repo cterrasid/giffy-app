@@ -10,38 +10,32 @@ export default function SearchResults({ params }) {
   const externalRef = useRef();
   const { isNearScreen } = useNearScreen({
     externalRef: isLoading ? null : externalRef,
-    once: false
+    once: false,
   });
 
-  // const handleNextPage = () => setPage(prevPage => prevPage + 1)
-  // const handleNextPage = () => console.log("next page");
-
   const debounceHandleNextPage = useCallback(
-    debounce(() => setPage(prevPage => prevPage + 1), 200),
-    []
+    debounce(() => setPage((prevPage) => prevPage + 1), 200),
+    [setPage]
   );
 
-  useEffect(
-    () => {
-      console.log(isNearScreen);
+  useEffect(() => {
+    console.log(isNearScreen);
 
-      if (isNearScreen) debounceHandleNextPage();
-    },
-    [debounceHandleNextPage, isNearScreen]
-  );
+    if (isNearScreen) debounceHandleNextPage();
+  }, [debounceHandleNextPage, isNearScreen]);
 
   return (
     <Fragment>
-      {isLoading
-        ? "Loading"
-        : <Fragment>
-            <h3>
-              {decodeURI(keyword)}
-            </h3>
-            <ListOfGifs gifs={gifs} />
-            <div id="snitch" ref={externalRef} />
-            {/*Peta al principio porque estamos añadiendo una ref a algo que no existe. Por eso, hay que adaptar useNearScreen para que acepte referencias externas */}
-          </Fragment>}
+      {isLoading ? (
+        "Loading"
+      ) : (
+        <Fragment>
+          <h3>{decodeURI(keyword)}</h3>
+          <ListOfGifs gifs={gifs} />
+          <div id="snitch" ref={externalRef} />
+          {/*Peta al principio porque estamos añadiendo una ref a algo que no existe. Por eso, hay que adaptar useNearScreen para que acepte referencias externas */}
+        </Fragment>
+      )}
     </Fragment>
   );
 }
