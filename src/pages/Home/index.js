@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { useLocation } from "wouter";
 import ListOfGifs from "components/ListOfGifs";
 import useGifs from "hooks/useGifs";

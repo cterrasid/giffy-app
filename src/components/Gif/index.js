@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import { Link } from "wouter";
 import "./styles.css";
 
-function Gif({ title, id, url }) {
+export default function Gif({ title, id, url }) {
   return (
     <article className="Gif">
       <Link to={`/gif/${id}`} className="Gif-link">
@@ -12,7 +12,3 @@ function Gif({ title, id, url }) {
     </article>
   );
 }
-
-export default memo(Gif, (prevProps, nextProps) => {
-  return prevProps.id === nextProps.id;
-});

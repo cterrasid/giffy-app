@@ -19,8 +19,6 @@ export default function SearchResults({ params }) {
   );
 
   useEffect(() => {
-    console.log(isNearScreen);
-
     if (isNearScreen) debounceHandleNextPage();
   }, [debounceHandleNextPage, isNearScreen]);
 
@@ -33,7 +31,6 @@ export default function SearchResults({ params }) {
           <h3>{decodeURI(keyword)}</h3>
           <ListOfGifs gifs={gifs} />
           <div id="snitch" ref={externalRef} />
-          {/*Peta al principio porque estamos añadiendo una ref a algo que no existe. Por eso, hay que adaptar useNearScreen para que acepte referencias externas */}
         </Fragment>
       )}
     </Fragment>

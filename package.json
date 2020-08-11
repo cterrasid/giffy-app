@@ -1,5 +1,5 @@
 {
-  "name": "giffy-app",
+  "name": "giffy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,9 +11,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "vercel": "^19.2.0",
     "wouter": "^2.5.0"
   },
   "scripts": {
+    "deploy": "npm run test && vercel",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
