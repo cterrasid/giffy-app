@@ -1,7 +1,5 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import useGifs from "./useGifs";
-import { useState } from "react";
-import { useEffect } from "react";
 import getSingleGifService from "services/getSingleGifService";
 
 export default function useSingleGif({ id }) {
