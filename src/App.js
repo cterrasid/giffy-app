@@ -7,7 +7,7 @@ import { GifsContextProvider } from "./context/GifsContext";
 
 const HomePage = lazy(() => import("./pages/Home"));
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Suspense fallback={null}>
@@ -23,5 +23,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

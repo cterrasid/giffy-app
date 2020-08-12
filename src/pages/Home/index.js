@@ -5,6 +5,7 @@ import useGifs from "hooks/useGifs";
 import TrendingSearches from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
 import { useCallback } from "react";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const [path, pushLocation] = useLocation();
@@ -19,6 +20,11 @@ export default function Home() {
 
   return (
     <Fragment>
+      <Helmet>
+        <title>Home | Giffy</title>
+        <meta name="description" content="Giffy's homepage" />
+      </Helmet>
+
       <h3 className="App-title">Tendencias</h3>
       <SearchForm onSubmit={handleSubmit} />
       <h3 className="App-title">Última búsqueda</h3>
