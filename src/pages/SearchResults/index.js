@@ -4,6 +4,7 @@ import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
 import { Helmet } from "react-helmet";
+import SearchForm from "components/SearchForm";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -41,6 +42,7 @@ export default function SearchResults({ params }) {
             <meta name="description" content={title} />
           </Helmet>
           <h3>{decodeURI(keyword)}</h3>
+          <SearchForm />
           <ListOfGifs gifs={gifs} />
           <div id="snitch" ref={externalRef} />
         </Fragment>

@@ -1,11 +1,13 @@
 import React, { useState, memo } from "react";
+import { useLocation } from "wouter";
 
-function SearchForm({ onSubmit }) {
+function SearchForm() {
   const [keyword, setKeyword] = useState("");
+  const [path, pushLocation] = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ keyword });
+    pushLocation(`/search/${keyword}`);
   };
 
   const handleChange = (e) => {
