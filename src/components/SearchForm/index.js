@@ -1,43 +1,14 @@
 import React, { memo } from "react";
 import { useLocation } from "wouter";
-import { useReducer } from "react";
+import useForm from "hooks/useForm";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
-const ACTIONS = {
-  UPDATE_KEYWORD: "update_keyword",
-  UPDATE_RATING: "update_rating",
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.UPDATE_KEYWORD:
-      return {
-        ...state,
-        keyword: action.payload,
-        times: state.times + 1,
-      };
-    case ACTIONS.UPDATE_RATING:
-      return {
-        ...state,
-        rating: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
-
 function SearchForm({ initialKeyword = "", initialRating = "" }) {
-  // const [rating, setRating] = useState(initialRating);
-
-  const [state, dispatch] = useReducer(reducer, {
-    keyword: decodeURIComponent(initialKeyword),
-    rating: initialRating,
-    times: 0,
+  const { keyword, rating, times, updateKeyword, updateRating } = useForm({
+    initialKeyword,
+    initialRating,
   });
-
-  const { keyword, rating, times } = state;
 
   const [path, pushLocation] = useLocation();
 
@@ -47,11 +18,11 @@ function SearchForm({ initialKeyword = "", initialRating = "" }) {
   };
 
   const handleChange = (e) => {
-    dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: e.target.value });
+    updateKeyword(e.target.value);
   };
 
   const handleChangeRating = (e) => {
-    dispatch({ type: ACTIONS.UPDATE_RATING, payload: e.target.value });
+    updateRating(e.target.value);
   };
 
   return (
