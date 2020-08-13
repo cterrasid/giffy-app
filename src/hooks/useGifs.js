@@ -4,7 +4,7 @@ import GifsContext from "../context/GifsContext";
 
 const INITIAL_PAGE = 0;
 
-export default function useGifs({ keyword } = { keyword: null }) {
+export default function useGifs({ keyword, rating } = { keyword: null }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingNextPage, setIsLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
@@ -15,29 +15,24 @@ export default function useGifs({ keyword } = { keyword: null }) {
   const keywordToUse =
     keyword || localStorage.getItem("lastKeyword") || "random";
 
-  useEffect(
-    () => {
-      setIsLoading(true);
+  useEffect(() => {
+    setIsLoading(true);
 
-      getGifsService({ keyword: keywordToUse }).then(gifs => {
-        setGifs(gifs);
-        setIsLoading(false);
-        localStorage.setItem("lastKeyword", keyword);
-      });
-    },
-    [keyword, keywordToUse, setGifs]
-  );
+    getGifsService({ keyword: keywordToUse, rating }).then((gifs) => {
+      setGifs(gifs);
+      setIsLoading(false);
+      localStorage.setItem("lastKeyword", keyword);
+    });
+  }, [keyword, keywordToUse, rating, setGifs]);
 
-  useEffect(
-    () => {
-      if (page === INITIAL_PAGE) return;
-      setIsLoadingNextPage(true);
-      getGifsService({ keyword: keywordToUse, page }).then(nextGifs => {
-        setGifs(prevGifs => prevGifs.concat(nextGifs)); // Se actualiza el state con una funcion que devuelve los gifs que ya estaban, concatenados con los de la proxima pagina
-        setIsLoadingNextPage(false);
-      });
-    },
-    [page, keywordToUse, setGifs]
-  );
+  useEffect(() => {
+    if (page === INITIAL_PAGE) return;
+    setIsLoadingNextPage(true);
+
+    getGifsService({ keyword: keywordToUse, rating, page }).then((nextGifs) => {
+      setGifs((prevGifs) => prevGifs.concat(nextGifs)); // Se actualiza el state con una funcion que devuelve los gifs que ya estaban, concatenados con los de la proxima pagina
+      setIsLoadingNextPage(false);
+    });
+  }, [page, keywordToUse, rating, setGifs]);
   return { isLoading, isLoadingNextPage, gifs, setPage };
 }

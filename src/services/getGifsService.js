@@ -19,10 +19,11 @@ export default async function getGifsService({
   limit = 25,
   keyword = "panda",
   page = 0,
+  rating = "g",
 } = {}) {
   const url = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${
     page * limit
-  }&rating=g&lang=en`;
+  }&rating=${rating}&lang=en`;
   const res = await fetch(url);
   const response = await res.json().then(fromApiResponseToGifs);
 
