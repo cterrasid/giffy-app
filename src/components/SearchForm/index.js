@@ -1,11 +1,29 @@
 import React, { useState, memo } from "react";
 import { useLocation } from "wouter";
+import { useReducer } from "react";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
+const reducer = (state, param) => {
+  console.log(param);
+  return {
+    ...state,
+    keyword: param,
+    times: state.times + 1,
+  };
+};
+
 function SearchForm({ initialKeyword = "", initialRating = "" }) {
-  const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
+  // const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
   const [rating, setRating] = useState(initialRating);
+  // const [times, setTimes] = useState(0);
+
+  const [state, dispatch] = useReducer(reducer, {
+    keyword: decodeURIComponent(initialKeyword),
+    times: 0,
+  });
+
+  const { keyword, times } = state;
 
   const [path, pushLocation] = useLocation();
 
@@ -14,8 +32,12 @@ function SearchForm({ initialKeyword = "", initialRating = "" }) {
     pushLocation(`/search/${keyword}/${rating}`);
   };
 
+  const updateKeyword = (keyword) => {
+    dispatch(keyword);
+  };
+
   const handleChange = (e) => {
-    setKeyword(e.target.value);
+    updateKeyword(e.target.value);
   };
 
   const handleChangeRating = (e) => {
@@ -37,6 +59,7 @@ function SearchForm({ initialKeyword = "", initialRating = "" }) {
           <option key={rating}>{rating}</option>
         ))}
       </select>
+      <small>{times}</small>
     </form>
   );
 }
