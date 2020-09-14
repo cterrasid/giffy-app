@@ -1,4 +1,5 @@
 .gif-item {
+  padding: 5px;
   position: relative;
 }
 
@@ -13,13 +14,15 @@
   font-size: 12px;
   position: absolute;
   right: 0;
+  text-align: end;
+  text-transform: lowercase;
 }
 
 .gif-link {
   color: var(--black);
   display: block;
-  text-decoration: none;
   position: relative;
+  text-decoration: none;
 }
 
 .gif-item img,
@@ -28,79 +31,55 @@
   width: 100%;
 }
 
-.Gif:nth-child(5n + 1) img {
-  background-color: var(--brand-color_1);
-}
-.Gif:nth-child(5n + 2) img {
-  background-color: var(--brand-color_2);
-}
-.Gif:nth-child(5n + 3) img {
-  background-color: var(--brand-color_3);
-}
-.Gif:nth-child(5n + 4) img {
-  background-color: var(--brand-color_4);
-}
-.Gif:nth-child(5n + 5) img {
-  background-color: var(--brand-color_5);
+.gif-item:hover h4 {
+  color: var(--black);
 }
 
-.Gif:hover:nth-child(5n + 1) {
-  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_1);
-}
-.Gif:hover:nth-child(5n + 2) {
-  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_2);
-}
-.Gif:hover:nth-child(5n + 3) {
-  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_3);
-}
-.Gif:hover:nth-child(5n + 4) {
-  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_4);
-}
-.Gif:hover:nth-child(5n + 5) {
-  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_5);
+.gif-item:nth-child(4n + 1):hover {
+  background-color: var(--aqua-light);
 }
 
-.Gif:hover:nth-child(5n + 1) h4 {
-  background-color: var(--brand-color_1);
-  color: var(--black-pure);
-}
-.Gif:hover:nth-child(5n + 2) h4 {
-  background-color: var(--brand-color_2);
-  color: var(--black-pure);
-}
-.Gif:hover:nth-child(5n + 3) h4 {
-  background-color: var(--brand-color_3);
-  color: white;
-}
-.Gif:hover:nth-child(5n + 4) h4 {
-  background-color: var(--brand-color_4);
-  color: white;
-}
-.Gif:hover:nth-child(5n + 5) h4 {
-  background-color: var(--brand-color_5);
-  color: var(--black-pure);
+.gif-item:nth-child(4n + 2):hover {
+  background-color: var(--pink-light);
 }
 
-.Gif:nth-child(11n + 1) {
-  grid-column: span 2;
-  grid-row: span 2;
+.gif-item:nth-child(4n + 3):hover {
+  background-color: var(--plum-light);
 }
 
-.Gif:nth-child(8n + 1) {
-  grid-column-end: span 2;
-  grid-row-end: span 2;
+.gif-item:nth-child(4n + 4):hover {
+  background-color: var(--springreen-light);
 }
 
-.Gif:nth-child(10n + 3) {
-  grid-column: span 2;
-  grid-row: span 1;
+.gif-item:nth-child(4n + 1):hover h4 {
+  background-color: var(--aqua-light);
+}
+
+.gif-item:nth-child(4n + 2):hover h4 {
+  background-color: var(--pink-light);
+}
+
+.gif-item:nth-child(4n + 3):hover h4 {
+  background-color: var(--plum-light);
+}
+
+.gif-item:nth-child(4n + 4):hover h4 {
+  background-color: var(--springreen-light);
 }
 
 @media screen and (min-width: 768px) {
-  .Gif:nth-child(11n + 1),
-  .Gif:nth-child(8n + 1),
-  .Gif:nth-child(10n + 3) {
-    grid-column: span 1;
+  .gif-item:nth-child(11n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gif-item:nth-child(8n + 1) {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+  }
+
+  .gif-item:nth-child(10n + 3) {
+    grid-column: span 2;
     grid-row: span 1;
   }
 }

@@ -1,13 +1,45 @@
-.Category {
-  list-style: none;
-  padding: 0.3rem;
-  margin: 0.2rem;
+.category-item {
   font-size: 1.2rem;
+  margin: 2px;
+  padding: 0.3rem;
 }
 
-.Category-link {
-  color: inherit;
-  text-decoration: none;
-  font-size: 1em;
+.category-link {
   transition: color ease-in 0.1s;
+}
+
+.category-item:nth-child(4n + 1) {
+  background-color: var(--aqua-light);
+}
+
+.category-item:nth-child(4n + 2) {
+  background-color: var(--pink-light);
+}
+
+.category-item:nth-child(4n + 3) {
+  background-color: var(--plum-light);
+}
+
+.category-item:nth-child(4n + 4) {
+  background-color: var(--springreen-light);
+}
+
+.category-item:hover {
+  color: var(--white);
+}
+
+.category-item:nth-child(4n + 1):hover {
+  background-color: var(--aqua);
+}
+
+.category-item:nth-child(4n + 2):hover {
+  background-color: var(--pink);
+}
+
+.category-item:nth-child(4n + 3):hover {
+  background-color: var(--plum);
+}
+
+.category-item:nth-child(4n + 4):hover {
+  background-color: var(--springreen);
 }

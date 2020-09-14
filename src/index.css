@@ -1,15 +1,16 @@
 :root {
   /*Colors*/
-  --theme--contrast-0: #121212;
   --white: #ffffff;
   --black: #000000;
   --black-transparency: #0000004d;
-  --brand-color_1: #07e0fd;
-  --brand-color_2: #fc34fc;
-  --brand-color_3: #9933ff;
-  --brand-color_4: #b8ff47;
-  --brand-color_5: #58ffab;
-  --brand-color_6: #4660f5;
+  --aqua: #50f1f1;
+  --pink: #f8bbc5;
+  --plum: #db8fdb;
+  --springreen: #68f5ae;
+  --aqua-light: #9cfafa;
+  --pink-light: #fad0d7;
+  --plum-light: #d8b0d8;
+  --springreen-light: #81fdbf;
 }
 
 *,
