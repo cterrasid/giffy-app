@@ -14,10 +14,9 @@ export default function Home() {
         <title>Home | Giffy</title>
         <meta name="description" content="Giffy's homepage" />
       </Helmet>
-
-      <h3 className="App-title">Tendencias</h3>
+      <h1 className="title">Giffy</h1>
       <SearchForm />
-      <h3 className="App-title">Última búsqueda</h3>
+      <h3 className="title">Última búsqueda</h3>
       <ListOfGifs gifs={gifs} />
       <TrendingSearches />
     </Fragment>

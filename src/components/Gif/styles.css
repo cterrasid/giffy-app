@@ -1,43 +1,31 @@
-.Gif {
-  --gifShadow-size: var(--gridList-gap, 6px);
+.gif-item {
   position: relative;
 }
 
-.Gif-link {
-  color: var(--black-pure);
+.gif-item img {
+  object-fit: cover;
+}
+
+.gif-item h4 {
+  background: var(--black-transparency);
+  bottom: 0;
+  color: var(--white);
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+}
+
+.gif-link {
+  color: var(--black);
   display: block;
   text-decoration: none;
   position: relative;
-  width: 100%;
 }
 
-.Gif-link img {
-  height: inherit;
-  object-fit: cover;
-}
-
-.Gif,
-.Gif-link {
+.gif-item img,
+.gif-link {
   height: 100%;
-}
-
-.Gif h4 {
-  background: var(--black-transparency);
-  bottom: 0;
-  font-size: 12px;
-  color: var(--white-pure);
-  margin: 0;
-  position: absolute;
-}
-
-.Gif img {
   width: 100%;
-  object-fit: cover;
-  vertical-align: top;
-}
-
-i {
-  font-size: 80px;
 }
 
 .Gif:nth-child(5n + 1) img {
