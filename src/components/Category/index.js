@@ -1,17 +1,13 @@
 import React from "react";
-import { Link } from "wouter";
-import "./styles.css";
+import { CategoryItem, CategoryLink } from "./styles.js";
 
 export default function Category({ option, index }) {
   return (
-    <li
-      className="category-item"
-      key={index}
+    <CategoryItem
+      index={index}
       onClick={() => localStorage.setItem("lastKeyword", option)}
     >
-      <Link to={`/search/${option}`} className="category-link link">
-        {option}
-      </Link>
-    </li>
+      <CategoryLink to={`/search/${option}`}>{option}</CategoryLink>
+    </CategoryItem>
   );
 }

@@ -8,7 +8,7 @@ export default function ListOfCategories({ name, options = [] }) {
       <h3 className="title">{name}</h3>
       <ul className="category-list">
         {options.map((option, index) => (
-          <Category key={index} option={option} name={name} />
+          <Category index={index} option={option} name={name} />
         ))}
       </ul>
     </>
