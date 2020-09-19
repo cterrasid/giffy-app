@@ -26,5 +26,6 @@ export const CategoryItem = styled.li`
 `;
 
 export const CategoryLink = styled(Link)`
+  color: var(--black-pure);
   transition: color ease-in 0.1s;
 `;

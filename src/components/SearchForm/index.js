@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import { useLocation } from "wouter";
 import useForm from "hooks/useForm";
+import Button from "components/Button";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
@@ -33,7 +34,7 @@ function SearchForm({ initialKeyword = "", initialRating = "" }) {
         onChange={handleChange}
         placeholder="Search a gif here..."
       />
-      <button>Buscar</button>
+      <Button>Buscar</Button>
       <select onChange={handleChangeRating} value={rating}>
         <option disabled>Rating type</option>
         {RATINGS.map((rating) => (

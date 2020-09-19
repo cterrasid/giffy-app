@@ -12,6 +12,7 @@ ReactDOM.render(
           --white: #ffffff;
           --black: #000000;
           --black-transparency: #0000004d;
+          --black-transparency-dark: #00000070;
           --color_1: #50f1f1;
           --color_2: #f8bbc5;
           --color_3: #db8fdb;
