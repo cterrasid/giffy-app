@@ -4,6 +4,7 @@ import useGifs from "hooks/useGifs";
 import TrendingSearches from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
 import { Helmet } from "react-helmet";
+import { Title } from "styles";
 
 export default function Home() {
   const { gifs } = useGifs();
@@ -14,7 +15,9 @@ export default function Home() {
         <title>Home | Giffy</title>
         <meta name="description" content="Giffy's homepage" />
       </Helmet>
-      <h1 className="title">Giffy</h1>
+      <Title>
+        <h1>Giffy</h1>
+      </Title>
       <SearchForm />
       <div className="content-container">
         <TrendingSearches />
