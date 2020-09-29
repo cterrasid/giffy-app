@@ -5,6 +5,7 @@ import TrendingSearches from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
 import { Helmet } from "react-helmet";
 import { Title } from "styles";
+import { StyledHomeContent } from "./styles";
 
 export default function Home() {
   const { gifs } = useGifs();
@@ -19,10 +20,10 @@ export default function Home() {
         <h1>Giffy</h1>
       </Title>
       <SearchForm />
-      <div className="content-container">
-        <TrendingSearches />
+      <StyledHomeContent className="content-container">
         <ListOfGifs gifs={gifs} />
-      </div>
+        <TrendingSearches />
+      </StyledHomeContent>
     </Fragment>
   );
 }
