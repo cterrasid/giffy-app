@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { useLocation } from "wouter";
 import useForm from "hooks/useForm";
 import Button from "components/Button";
+import { StyledInputText } from "./styles";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
@@ -28,7 +29,7 @@ function SearchForm({ initialKeyword = "", initialRating = "" }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <StyledInputText
         type="text"
         value={keyword}
         onChange={handleChange}
